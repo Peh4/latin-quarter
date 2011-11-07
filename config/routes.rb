@@ -1,4 +1,8 @@
 LatinQuarterApp::Application.routes.draw do
+  get "draws/new"
+
+  get "draws/show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
