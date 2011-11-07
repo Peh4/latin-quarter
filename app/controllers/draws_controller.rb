@@ -27,7 +27,8 @@ class DrawsController < ApplicationController
       end
       
       flash[:success] = "Thanks #{@draw.author} !"
-      redirect_to @draw
+      # redirect_to @draw
+      redirect_to :action => "index"
     else
       @title = "Sign up"
       render 'new'
