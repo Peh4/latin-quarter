@@ -1,7 +1,9 @@
 LatinQuarterApp::Application.routes.draw do
-  get "draws/new"
 
-  get "draws/show"
+  resources :draws
+  
+  match '/',  :to => 'draws#new'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
