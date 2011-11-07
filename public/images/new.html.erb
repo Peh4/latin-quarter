@@ -1,6 +1,3 @@
-<div id="container">
-
-
 
 <style type="text/css">
 	
@@ -97,12 +94,6 @@ jQuery(document).ready(function() {
            " /><br /><a href="+canvas[0].toDataURL()+ 
            " target='_blank'>show</a>");
         });
-
-        jQuery("#draw_submit").click(function(){ 
-            jQuery("#draw_data").val(canvas[0].toDataURL());
-            jQuery("#new_draw").submit();
-			return false
-        });
      
         //Clear 
         jQuery("#clear").click(function(){
@@ -119,7 +110,7 @@ jQuery(document).ready(function() {
 
 	
 </script>
-
+<div id="container">
 
 <canvas id="can" width="960" height="643"> </canvas> 
 <div id="clr"> 
@@ -131,30 +122,6 @@ jQuery(document).ready(function() {
 	</div> <a href="#" id="clear" >Clear</a> <a id="save" href="#">Save</a> <a id="eraser" href="#">Eraser</a> <span id="result" ></span>  
 
 
-	<h1>Colorie le quartier latin</h1>
-
-	<%= form_for(@draw) do |f| %>
-
-	<%= render 'shared/error_messages' %>
-
-	  <div class="field">
-	    <%= f.label :author %><br />
-	    <%= f.text_field :author %>
-	  </div>
-
-	  <div class="field">
-	    <%= f.label :data %><br />
-	    <%= f.text_area :data %>
-	  </div>
-
-	  <div class="field">
-	    <%= f.label :parisien %><br />
-	    <%= f.check_box :parisien %>
-	  </div>
-	  <div class="actions">
-	    <%= f.submit "Ok!" %>
-	  </div>
-	<% end %>
 
 
 
