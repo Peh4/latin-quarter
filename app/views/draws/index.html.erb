@@ -1,0 +1,9 @@
+<h1>Le quartier latin selon les parisiens</h1>
+
+<ul class="draws">
+  <% @draws.each do |draw| %>
+    <li>
+	<img src="/images/img_<%= draw.id %>.png"/>
+    </li>
+  <% end %>
+</ul>
