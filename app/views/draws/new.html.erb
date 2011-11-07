@@ -1,2 +1,22 @@
-<h1>Draws#new</h1>
-<p>Find me in app/views/draws/new.html.erb</p>
+<h1>Colorie le quartier latin</h1>
+
+<%= form_for(@draw) do |f| %>
+
+<%= render 'shared/error_messages' %>
+
+  <div class="field">
+    <%= f.label :author %><br />
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :data %><br />
+    <%= f.text_field :data %>
+  </div>
+  <div class="field">
+    <%= f.label :parisien %><br />
+    <%= f.check_box :parisien %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Ok!" %>
+  </div>
+<% end %>

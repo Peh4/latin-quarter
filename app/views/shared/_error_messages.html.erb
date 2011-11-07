@@ -1,0 +1,12 @@
+<% if @draw.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@draw.errors.count, "error") %> 
+        prohibited this draw from being saved:</h2>
+    <p>There were problems with the following fields:</p>
+    <ul>
+    <% @draw.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

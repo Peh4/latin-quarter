@@ -17,6 +17,5 @@ class Draw < ActiveRecord::Base
                       :length   => { :maximum => 50 }
 
   validates :data, :presence => true
-  validates :parisien, :presence => true
   
 end
