@@ -22,7 +22,7 @@ class DrawsController < ApplicationController
       #       f.write(Base64.decode64(imgData))
       #     end
       
-      flash[:success] = "Thanks #{@draw.author} !"
+      flash[:success] = "Thanks !"
       # redirect_to @draw
       redirect_to :action => "index"
     else
