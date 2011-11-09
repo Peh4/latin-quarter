@@ -8,7 +8,7 @@ class DrawsController < ApplicationController
   end
   
   def index
-     @draws = Draw.all
+     # @draws = Draw.all
   end
   
   def create
