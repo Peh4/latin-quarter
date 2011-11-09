@@ -59,7 +59,7 @@ jQuery(document).ready(function() {
         //set it true on mousedown
         jQuery("#can").mousedown(function(){
 				draw=true;
-				offSet = jQuery("#container").offset();
+				offSet = jQuery("#can").offset();
 				});
 
         //reset it on mouseup
@@ -119,9 +119,7 @@ jQuery(document).ready(function() {
 	
 </script>
 
-
-<h1>Colorie le quartier latin</h1>
-
+	<h1>Colorie le quartier latin</h1>
 <canvas id="can" width="960" height="643"> </canvas> 
 <div id="clr"> 
 	<div style="background-color:black;"></div>
@@ -130,6 +128,8 @@ jQuery(document).ready(function() {
 	<div style="background-color:green;"> </div>
 	 <div style="background-color:orange;"> </div> 
 	</div> <a href="#" id="clear" >Clear</a> <a id="save" href="#">Save</a> <a id="eraser" href="#">Eraser</a> <span id="result" ></span>  
+
+
 
 
 	<%= form_for(@draw) do |f| %>
