@@ -15,12 +15,12 @@ class DrawsController < ApplicationController
 
     @draw = Draw.new(params[:draw])
     if @draw.save
-      imgData = @draw.data
-      imgData["data:image/png;base64,"] = ""
-      url = 'public/images/img_'+@draw.id.to_s+'.png'
-      File.open(url, 'wb') do |f|
-        f.write(Base64.decode64(imgData))
-      end
+      # imgData = @draw.data
+      #     imgData["data:image/png;base64,"] = ""
+      #     url = 'public/images/img_'+@draw.id.to_s+'.png'
+      #     File.open(url, 'wb') do |f|
+      #       f.write(Base64.decode64(imgData))
+      #     end
       
       flash[:success] = "Thanks #{@draw.author} !"
       # redirect_to @draw
