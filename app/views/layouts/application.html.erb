@@ -2,16 +2,149 @@
 <html>
 <head>
   <title>LatinQuarterApp</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+<style type="text/css">
+
+
+	*{
+	    margin:0;
+	    -webkit-user-select: none;
+
+	}
+
+	body {
+		background-color:#eee;
+		font-family: helvetica, arial, sans-serif;
+		color:#333;
+	}
+	#container {
+		width:960px;
+		margin:30px auto;
+	}
+	canvas{
+	    cursor: crosshair;
+	    border:black solid 1px;
+	 }
+	#clr div{
+	    cursor:pointer;
+	    cursor:hand;
+	    width:20px;
+	    height:20px;
+	    float:left;
+	}
+	#draws {
+		background : transparent url("/images/map.png") no-repeat 0 0 scroll;
+		height :643px;
+		position:relative;
+	}
+	#draws li{
+		list-style:none;
+	}
+	#can {
+		width:960px;
+		height:643px;
+		background : transparent url("/images/map.png") no-repeat 0 0 scroll;
+		position:relative;
+	}
+	.hidden {
+		display:none;
+	}
+	#draw_submit {
+		float:right;
+	}
+	#clear {
+		float:left;
+	}
+
+</style>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+jQuery.noConflict();
+ 
+jQuery(document).ready(function() {
+        var draw= false;
+       
+        var canvas = jQuery("#can");
+        var ctx = canvas[0].getContext("2d");
+		var offSet;
+
+        ctx.strokeStyle = 'red';
+
+        //set it true on mousedown
+        jQuery("#can").mousedown(function(){
+				draw=true;
+				offSet = jQuery("#can").offset();
+				});
+
+        //reset it on mouseup
+        jQuery("#can").mouseup(function(){draw=false;});
+
+        jQuery("#can").mousemove(function(e) {
+            if(draw==true){
+
+                    ctx.lineWidth = 20;
+                    ctx.lineCap = "square";
+                    ctx.beginPath();
+                    ctx.moveTo(e.pageX - offSet.left ,e.pageY-offSet.top);
+                    ctx.lineTo(e.pageX- offSet.left+1,e.pageY-offSet.top+1);
+                    ctx.stroke();
+            }    
+       });
+
+        
+       //code for color pallete
+        jQuery("#clr > div").click(
+        function(){
+               ctx.strokeStyle = jQuery(this).css("background-color");
+        });
+     
+        //Eraser
+        jQuery("#eraser").click(function(){
+        ctx.strokeStyle = 'transparent';
+        });
+
+        //Code for save the image
+        jQuery("#save").click(function(){ 
+            jQuery("#result").append("<br /><br /><img src="+
+            canvas[0].toDataURL()+ 
+           " /><br /><a href="+canvas[0].toDataURL()+ 
+           " target='_blank'>show</a>");
+        });
+
+        jQuery("#draw_submit").click(function(){ 
+            jQuery("#draw_data").val(canvas[0].toDataURL());
+            jQuery("#new_draw").submit();
+			return false
+        });
+     
+        //Clear 
+        jQuery("#clear").click(function(){
+                // ctx.fillStyle = "#fff";
+				ctx.clearRect ( 0 , 0 , 960 , 643 );
+                // ctx.fillRect(0, 0, canvas[0].width, canvas[0].height);
+                ctx.strokeStyle = "red";
+                ctx.fillStyle = "red";
+            }
+            );
+});
+
+
+
+
+	
+</script>
   <%= csrf_meta_tag %>
 </head>
 <body>
       <section class="round">
-        <% flash.each do |key, value| %>
-          <div class="flash <%= key %>"><%= value %></div>
-        <% end %>
-        <%= yield %>
+		<div id="container">
+        	<%= yield %>
+        	<% flash.each do |key, value| %>
+          	<div class="flash <%= key %>"><%= value %></div>
+        	<% end %>
+		</div>
       </section>
 
 

@@ -10,52 +10,15 @@
 		opacity:<%= alpha %>;
 	}
 </style>
-<h1>Le quartier latin selon les parisiens</h1>
 
-<ul id="draws">
-  <% @draws.each do |draw| %>
+	<h1>Le quartier latin</h1>
 
-    <li>
-	<img src="<%= draw.data %>"/>
-    </li>
-  <% end %>
-</ul>
+	<ul id="draws">
+  		<% @draws.each do |draw| %>
 
-<style type="text/css">
-	
+    	<li>
+			<img src="<%= draw.data %>"/>
+    	</li>
+  		<% end %>
+	</ul>
 
-	*{
-	    margin:0;
-	    -webkit-user-select: none;
-	    font-family: Georgia, sans-serif;
-	}
-	
-	body {
-		background-color:#eee;
-	}
-	
-	canvas{
-	    cursor: crosshair;
-	    border:black solid 1px;
-	 }
-	#clr div{
-	    cursor:pointer;
-	    cursor:hand;
-	    width:20px;
-	    height:20px;
-	    float:left;
-	}
-	#draws {
-		background : transparent url("/images/map.png") no-repeat 0 0 scroll;
-		width:960px;
-		height :643px;
-		margin:0 auto;
-		position:relative;
-	}
-	#can {
-		width:960px;
-		height:643px;
-		position:relative;
-	}
-
-</style>
