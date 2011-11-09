@@ -13,8 +13,7 @@
 class Draw < ActiveRecord::Base
   attr_accessible :author, :data, :parisien
   
-  validates :author,  :presence => true,
-                      :length   => { :maximum => 50 }
+  validates :author, :length   => { :maximum => 50 }
 
   validates :data, :presence => true
   
