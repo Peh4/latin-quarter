@@ -2,7 +2,7 @@ class CreateDraws < ActiveRecord::Migration
   def self.up
     create_table :draws do |t|
       t.string :author
-      t.text :data
+      t.string :data
       t.boolean :parisien
 
       t.timestamps
