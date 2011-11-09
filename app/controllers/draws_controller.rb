@@ -12,10 +12,6 @@ class DrawsController < ApplicationController
   end
   
   def create
-    
-
-    
-
 
     @draw = Draw.new(params[:draw])
     if @draw.save

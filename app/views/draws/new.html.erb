@@ -41,8 +41,7 @@
 
 </style>
 
-<script type="text/javascript"
-src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 
 
 <script type="text/javascript">
@@ -73,7 +72,7 @@ jQuery(document).ready(function() {
                     ctx.lineCap = "round";
                     ctx.beginPath();
                     ctx.moveTo(e.pageX - offSet.left ,e.pageY-offSet.top);
-                    ctx.lineTo(e.pageX- offSet.left,e.pageY-offSet.top);
+                    ctx.lineTo(e.pageX- offSet.left+1,e.pageY-offSet.top+1);
                     ctx.stroke();
             }    
        });
@@ -121,6 +120,8 @@ jQuery(document).ready(function() {
 </script>
 
 
+<h1>Colorie le quartier latin</h1>
+
 <canvas id="can" width="960" height="643"> </canvas> 
 <div id="clr"> 
 	<div style="background-color:black;"></div>
@@ -131,11 +132,9 @@ jQuery(document).ready(function() {
 	</div> <a href="#" id="clear" >Clear</a> <a id="save" href="#">Save</a> <a id="eraser" href="#">Eraser</a> <span id="result" ></span>  
 
 
-	<h1>Colorie le quartier latin</h1>
-
 	<%= form_for(@draw) do |f| %>
 
-	<%= render 'shared/error_messages' %>
+	<!-- <%= render 'shared/error_messages' %> -->
 
 	  <div class="field">
 	    <%= f.label :author %><br />
