@@ -1,0 +1,11 @@
+<h1>Créez de nouveaux parametres</h1>
+<%= form_for(@info) do |f| %>
+
+	<%= render 'shared/error_messages' %>
+	<%= f.label :nom %><br />
+	<%= f.text_field :nom %>
+
+  <div class="actions">
+    <%= f.submit "valider" %>
+  </div>
+<% end %>

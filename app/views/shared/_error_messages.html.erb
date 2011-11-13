@@ -1,12 +1,28 @@
-<% if @draw.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@draw.errors.count, "error") %> 
-        prohibited this draw from being saved:</h2>
-    <p>There were problems with the following fields:</p>
-    <ul>
-    <% @draw.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
+<% if @draw %>
+	<% if @draw.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@draw.errors.count, "error") %> 
+	        prohibited this draw from being saved:</h2>
+	    <p>There were problems with the following fields:</p>
+	    <ul>
+	    <% @draw.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+<% end %>
+<% if @info %>
+	<% if @info.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@info.errors.count, "error") %> 
+	        prohibited this info from being saved:</h2>
+	    <p>There were problems with the following fields:</p>
+	    <ul>
+	    <% @info.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
 <% end %>

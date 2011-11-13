@@ -11,6 +11,8 @@
 
 class Info < ActiveRecord::Base
     attr_accessible :nom
+
+    validates :nom, :presence => true
 end
 
 

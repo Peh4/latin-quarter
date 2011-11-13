@@ -146,7 +146,7 @@ jQuery(document).ready(function() {
         //Clear 
         jQuery("#clear").click(function(){
                 // ctx.fillStyle = "#fff";
-				ctx.clearRect ( 0 , 0 , 960 , 643 );
+				ctx.clearRect ( 0 , 0 , jQuery("#can").width() , jQuery("#can").height() );
                 // ctx.fillRect(0, 0, canvas[0].width, canvas[0].height);
                 ctx.strokeStyle = "red";
                 ctx.fillStyle = "red";
@@ -162,14 +162,14 @@ jQuery(document).ready(function() {
   <%= csrf_meta_tag %>
 </head>
 <body>
-      <section class="round">
+
 		<div id="container">
         	<%= yield %>
         	<% flash.each do |key, value| %>
           	<div class="flash <%= key %>"><%= value %></div>
         	<% end %>
 		</div>
-      </section>
+
 
 
 </body>

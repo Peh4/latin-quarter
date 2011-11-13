@@ -1,8 +1,12 @@
 LatinQuarterApp::Application.routes.draw do
 
+
   resources :draws
+  resources :infos
+
   
   match '/',  :to => 'draws#new'
+  match '/infos',  :to => 'infos#index'
 
 
 
