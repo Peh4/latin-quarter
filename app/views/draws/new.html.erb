@@ -3,15 +3,18 @@
 <canvas id="can" width="1100" height="1026"> </canvas>
 
 <ul id="infos">
+	<h2>Vous êtes :</h2>
 	<% @infos.each do |info| %>
 
 	<li>
-		<input id="<%= info.id %>" type="checkbox"/>
+		<input id="<%= info.id %>" type="checkbox" value="<%= info.id %>"/>
 		<label for="<%= info.id %>" ><%= info.nom %></label>
 
 	</li>
 	
 	<% end %>
+	
+<a href="#">></a>
 </ul>
 
 <p><a href="#" id="clear" >effacer</a></p>
@@ -23,6 +26,10 @@
 	<div class="field hidden">
 	<%= f.label :data %><br />
 	<%= f.text_area :data %>
+  	</div>
+	<div class="field ">
+	<%= f.label :info_id %><br />
+	<%= f.text_field :info_id %>
   	</div>
 
   <div class="actions">

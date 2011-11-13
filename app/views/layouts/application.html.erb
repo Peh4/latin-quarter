@@ -22,14 +22,18 @@
 		padding:30px 0px;
 		overflow:auto;
 		max-width:1102px;
+		position:relative;
 	}
 	h1 {
 		font-size:26px;
 		font-weight:900;
 		text-transform:uppercase;
 		padding:0 0 26px;
-		
-		
+	}
+	h2 {
+		font-weight:100;
+		font-size:24px;
+		padding:0 0 34px;
 	}
 	canvas{
 	    cursor: crosshair;
@@ -78,6 +82,22 @@
 		float:right;
 		padding:3px 6px 4px;
 	}
+	
+	#infos {
+		position:absolute;
+		top:110px;
+		left:21px;
+		padding:34px 42px;
+		background-color:rgba(255,255,255,0.8);
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		list-style:none;
+		min-width:665px;
+	}
+	#infos li{
+		padding:0 0 13px;
+	}	
 </style>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
@@ -152,7 +172,24 @@ jQuery(document).ready(function() {
                 ctx.fillStyle = "red";
             }
             );
-});
+
+		jQuery("#infos").click(function(){
+			var arrayInfos = jQuery("#infos input:checked");
+			var ids = "";
+			arrayInfos.each(function(){
+
+				console.log(jQuery(this).val())
+
+				ids += "info_"+jQuery(this).val()+" ";
+
+			})
+			jQuery("#draw_info_id").val(ids)
+
+		});
+
+
+		});
+		
 
 
 

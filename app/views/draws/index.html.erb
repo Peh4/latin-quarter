@@ -15,7 +15,7 @@
 	<ul id="draws">
   		<% @draws.each do |draw| %>
 
-    	<li>
+    	<li class="<%= draw.info_id %>">
 			<img src="<%= draw.data %>"/>
     	</li>
   		<% end %>
