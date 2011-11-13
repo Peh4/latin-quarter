@@ -1,20 +1,21 @@
+
 # == Schema Information
 #
 # Table name: draws
 #
 #  id         :integer         not null, primary key
-#  author     :string(255)
-#  data       :string(255)
-#  parisien   :boolean
+#  data       :text(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  info_id    :integer
 #
 
-class Draw < ActiveRecord::Base
-  attr_accessible :author, :data, :parisien
-  
-  validates :author, :length   => { :maximum => 50 }
 
+
+class Draw < ActiveRecord::Base
+  attr_accessible :data, :info_id
+  
   validates :data, :presence => true
   
 end
+

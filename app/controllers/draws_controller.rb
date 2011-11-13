@@ -1,6 +1,7 @@
 class DrawsController < ApplicationController
   def new
     @draw = Draw.new
+    @infos = Info.all
   end
 
   def show

@@ -1,10 +1,20 @@
-<h1>Colorie le Quartier Latin</h1>
+<h1>COLORIEZ LE QUARTIER LATIN</h1>
 
-<canvas id="can" width="960" height="643"> </canvas> 
-<p><a href="#" id="clear" >Clear</a></p>
+<canvas id="can" width="1100" height="1026"> </canvas>
 
+<ul id="infos">
+	<% @infos.each do |info| %>
 
+	<li>
+		<input id="<%= info.id %>" type="checkbox"/>
+		<label for="<%= info.id %>" ><%= info.nom %></label>
 
+	</li>
+	
+	<% end %>
+</ul>
+
+<p><a href="#" id="clear" >effacer</a></p>
 
 <%= form_for(@draw) do |f| %>
 
@@ -16,7 +26,7 @@
   	</div>
 
   <div class="actions">
-    <%= f.submit "Ok!" %>
+    <%= f.submit "valider" %>
   </div>
 <% end %>
 

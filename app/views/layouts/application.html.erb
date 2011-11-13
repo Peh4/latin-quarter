@@ -12,13 +12,24 @@
 	}
 
 	body {
-		background-color:#eee;
+/*		background-color:#eee;*/
 		font-family: helvetica, arial, sans-serif;
 		color:#333;
+		overflow-x:hidden;
 	}
 	#container {
-		width:960px;
-		margin:30px auto;
+		margin:40px 30px;
+		padding:30px 0px;
+		overflow:auto;
+		max-width:1102px;
+	}
+	h1 {
+		font-size:26px;
+		font-weight:900;
+		text-transform:uppercase;
+		padding:0 0 26px;
+		
+		
 	}
 	canvas{
 	    cursor: crosshair;
@@ -31,30 +42,42 @@
 	    height:20px;
 	    float:left;
 	}
-	#draws {
-		background : transparent url("/images/map.png") no-repeat 0 0 scroll;
-		height :643px;
-		position:relative;
-	}
+
 	#draws li{
 		list-style:none;
 	}
-	#can {
-		width:960px;
-		height:643px;
+	#draws,#can {
+		width:1100px;
+		height:1026px;
 		background : transparent url("/images/map.png") no-repeat 0 0 scroll;
 		position:relative;
+		margin:0 0 8px;
 	}
 	.hidden {
 		display:none;
 	}
+
+	#clear, #draw_submit {
+		background-color:#fff;
+		font-size:16px;
+		color:#000;
+		float:left;
+		padding:6px;
+		border:1px solid #000;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		cursor:pointer;
+		text-decoration:none;
+	}
+	#clear:hover, #draw_submit:hover {
+		background-color:#000;
+		color:#fff;
+	}
 	#draw_submit {
 		float:right;
+		padding:3px 6px 4px;
 	}
-	#clear {
-		float:left;
-	}
-
 </style>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
@@ -74,8 +97,9 @@ jQuery(document).ready(function() {
 
         //set it true on mousedown
         jQuery("#can").mousedown(function(){
-				draw=true;
-				offSet = jQuery("#can").offset();
+					draw=true;
+					offSet = jQuery("#can").offset();
+
 				});
 
         //reset it on mouseup

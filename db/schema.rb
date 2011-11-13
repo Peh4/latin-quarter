@@ -10,12 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111109100556) do
+ActiveRecord::Schema.define(:version => 20111113192036) do
 
   create_table "draws", :force => true do |t|
-    t.string   "author"
     t.text     "data",       :limit => 255
-    t.boolean  "parisien"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "info_id"
+  end
+
+  create_table "infos", :force => true do |t|
+    t.string   "nom"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
