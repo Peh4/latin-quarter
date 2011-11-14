@@ -2,18 +2,21 @@ class DrawsController < ApplicationController
   def new
     @draw = Draw.new
     @infos = Info.all
+    @body_id = "new"
   end
 
   def show
     @draw = Draw.find(params[:id])
+    @body_id = "draw_"+params[:id]
   end
   
   def index
      @draws = Draw.all
+     @infos = Info.all
+    @body_id = "index"
   end
   
   def create
-
     @draw = Draw.new(params[:draw])
     if @draw.save
       # imgData = @draw.data

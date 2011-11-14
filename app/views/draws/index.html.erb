@@ -21,3 +21,16 @@
   		<% end %>
 	</ul>
 
+<ul>
+	
+	<% @infos.each do |info| %>
+
+	<li>
+		<input id="<%= info.id %>" type="checkbox" value="<%= info.id %>"/>
+		<label for="<%= info.id %>" ><%= info.nom %></label>
+
+	</li>
+	
+	<% end %>
+
+</ul>

@@ -7,7 +7,9 @@
 
 	*{
 	    margin:0;
+		padding:0;
 	    -webkit-user-select: none;
+		border:none;
 
 	}
 
@@ -97,7 +99,11 @@
 	}
 	#infos li{
 		padding:0 0 13px;
-	}	
+	}
+	
+
+	
+		
 </style>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
@@ -110,10 +116,15 @@ jQuery(document).ready(function() {
         var draw= false;
        
         var canvas = jQuery("#can");
-        var ctx = canvas[0].getContext("2d");
+		
+		if(canvas.length){
+	        var ctx = canvas[0].getContext("2d");
+	        ctx.strokeStyle = 'red';
+
+		}
+
 		var offSet;
 
-        ctx.strokeStyle = 'red';
 
         //set it true on mousedown
         jQuery("#can").mousedown(function(){
@@ -187,8 +198,15 @@ jQuery(document).ready(function() {
 
 		});
 
-
-		});
+		jQuery("#index input:checkbox").attr("checked", "checked").click(function(){
+			jQuery("#draws li").addClass("hidden");
+			jQuery("#index input:checked").each(function(){
+				var info_id = "#draws li.info_"+jQuery(this).val()
+				console.log(info_id)
+				jQuery(info_id).removeClass("hidden")
+			})
+		})
+});
 		
 
 
@@ -198,7 +216,7 @@ jQuery(document).ready(function() {
 </script>
   <%= csrf_meta_tag %>
 </head>
-<body>
+<body id="<%= @body_id %>">
 
 		<div id="container">
         	<%= yield %>
