@@ -63,7 +63,7 @@
 		display:none;
 	}
 
-	#clear, #draw_submit {
+	#clear, #draw_submit, #infosOk {
 		background-color:#fff;
 		font-size:16px;
 		color:#000;
@@ -76,13 +76,17 @@
 		cursor:pointer;
 		text-decoration:none;
 	}
-	#clear:hover, #draw_submit:hover {
+	#clear:hover, #draw_submit:hover, #infosOk:hover {
 		background-color:#000;
 		color:#fff;
 	}
 	#draw_submit {
 		float:right;
 		padding:3px 6px 4px;
+	}
+	
+	#infosOk {
+		float:right;
 	}
 	
 	#infos {
@@ -100,6 +104,10 @@
 	#infos li{
 		padding:0 0 13px;
 	}
+	
+
+	
+	
 	
 
 	
@@ -201,11 +209,15 @@ jQuery(document).ready(function() {
 		jQuery("#index input:checkbox").attr("checked", "checked").click(function(){
 			jQuery("#draws li").addClass("hidden");
 			jQuery("#index input:checked").each(function(){
-				var info_id = "#draws li.info_"+jQuery(this).val()
-				console.log(info_id)
-				jQuery(info_id).removeClass("hidden")
-			})
-		})
+				var info_id = "#draws li.info_"+jQuery(this).val();
+				console.log(info_id);
+				jQuery(info_id).removeClass("hidden");
+			});
+		});
+		
+		jQuery("#infosOk").click(function(){
+			jQuery("#infos").slideToggle(400);
+		});
 });
 		
 
